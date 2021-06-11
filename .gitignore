@@ -1,0 +1,12 @@
+# Répertoire de la DB et des fichiers .json
+.bibliopyDatas
+# Répertoire contenant tous les fichiers de documenation
+Documentation
+# Fichiers de projet IDE
+.idea
+.vscode
+# Environnement virtuel
+.my_virtual
+# Binaires
+__pycache__
+*.pyc
