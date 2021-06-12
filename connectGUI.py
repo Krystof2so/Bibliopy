@@ -1,3 +1,7 @@
+"""Fichier provisoire qui sert pour l'instant à faire tourner le programme en CLI.
+Modifications à prévoir en vue de de connecter ces actions à une app GUI.
+"""
+
 import bibliolib as biblib 
 
 # PushButton "Créer bibliographie"
@@ -30,10 +34,65 @@ def btn_input_book(my_biblio):
             print(f"{str(The_book)} est déjà dans la base de données.")
     else:
         print("Pas d'enregistrement effectué")
-    
+
+def check_type_doc(): # item à sélectionner
+    """Choix du type de document
+
+    Returns:
+        str: reférence type de document.
+    """
+    ctd = False
+    while ctd == False:
+        type_d = input("S'agit t'il d'un (A)rticle ou d'un (L)ivre ? Votre choix: ")
+        if type_d == "a" or type_d == "A":
+            ctd = True
+            return "A-"
+        elif type_d == "l" or type_d =="L":
+            ctd = True
+            return "L-"
+        else:
+            ctd = False
+
 def enter_book(): # Prévoir un LineEdit pour l'affichage et les widgets de saisie
     """ Pour la saisie des informations relatives à un livre."""  
     author = input("Nom de l'auteur: ").upper()
     author2 = input("Prénom de l'auteur: ").capitalize()
-    title_book = input("Titre de son livre: ").title()
-    return {"nom": author, "prenom": author2, "ouvrage": title_book}
+    title_book = input("Titre de son livre/article: ").title()
+    year = check_int("Année de parution: ")
+    type_doc = check_type_doc()
+    if type_doc == "A-":
+        periodic = input("Nom de la revue dans laquelle l'article a été publié: ").title()
+        first_page = check_int("Numéro de la première page: ")
+        end_page = check_int("Numéro de la dernière page: ")
+        return {"document": type_doc, "nom": author, 
+                "prenom": author2, "ouvrage": title_book, 
+                "an_parution": year, "revue": periodic, 
+                "pp": first_page, "pps": end_page}
+    else:
+        editing = input("Edition: ").capitalize()
+        nber_pages = check_int("Nombre de pages: ")
+        isbn = input("Numéro ISBN: ")
+        return {"document": type_doc, "nom": author, 
+                "prenom": author2, "ouvrage": title_book, 
+                "an_parution": year, "edition": editing, 
+                "nb_pages": nber_pages, "ISBN": isbn}
+
+def check_int(question):
+    """Verifier si la valeur saisie est de type 'int'.
+
+    Args:
+        question (str): Question posée en vue de la saisie.
+
+    Returns:
+        int: Nombre répondu à la question.
+    """
+    t = True
+    while t:
+        number = input(question)
+        try:
+            check_number = int(number)
+        except ValueError: # Exception qui évite la sortie de boucle
+            print("Veuillez saisir un nombre...")
+            t = True
+        else: # actions réalisées si aucune exception
+            return check_number
