@@ -10,3 +10,5 @@ Documentation
 # Binaires
 __pycache__
 *.pyc
+# Répertoite de test
+TEST_NEW_CODE
