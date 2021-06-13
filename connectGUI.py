@@ -21,11 +21,12 @@ def btn_input_book(my_biblio):
 	"""Fonction lancer l'enregistrer des informations fournies pour un livre.
 
     Args:
-        my_biblio (dict): Ensemble des informartions relatives à un livre.
+        my_biblio (str): Ensemble des informartions relatives à un livre.
     """
 	donnes_du_livre = enter_book()
 	print(donnes_du_livre)
-	the_book = biblib.BookRef(donnes_du_livre)  #  enter_book() retourne le dictionnaire des données saisies par l'utilisateur
+	the_book = biblib.BookRef(donnes_du_livre)
+	# enter_book() retourne le dictionnaire des données saisies par l'utilisateur
 	registration_request = input(f"Souhaitez-vous enregistrer l'ouvrage {str(the_book)} ? (o/n) ")  #  Prévoir un LineEdit
 	if registration_request == "o" or registration_request == "o".upper():  # Prévoir une saisie utilisateur en GUI
 		register_book = biblib.SaveBook(the_book.id_and_ref_title(), my_biblio, donnes_du_livre)
@@ -47,13 +48,11 @@ def check_type_doc():  # item à sélectionner
         str: reférence type de document.
     """
 	ctd = False
-	while ctd == False:
+	while not ctd:
 		type_d = input("S'agit t'il d'un (A)rticle ou d'un (L)ivre ? Votre choix: ")
 		if type_d == "a" or type_d == "A":
-			ctd = True
 			return "A-"
 		elif type_d == "l" or type_d == "L":
-			ctd = True
 			return "L-"
 		else:
 			ctd = False

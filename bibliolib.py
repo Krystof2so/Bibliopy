@@ -28,7 +28,8 @@ class Bibliography:
         Returns:
             str: Nom de la bibliographie.
         """
-        if self.my_biblio in [b.name for b in DIR_DATAS.iterdir() if b.is_dir()]: # in liste des répertoires dans .bibliopyDatas
+        # in liste des répertoires dans .bibliopyDatas
+        if self.my_biblio in [b.name for b in DIR_DATAS.iterdir() if b.is_dir()]:
             pass
         else: 
             self.dir_biblio.mkdir()
@@ -37,7 +38,7 @@ class Bibliography:
 
 class BookRef:
     """Classe pour définir la référence d'un livre selon les informations fournies."""
-    def __init__(self, book_datas: dict):
+    def __init__(self, book_datas):
         """Initialise.
 
         Args:
@@ -68,7 +69,7 @@ class BookRef:
         """Création de la référence.
 
         Returns:
-            dict: {référence: {données sur le livre}}.
+            str: référence livre.
         """
         td = self.type_doc
         n = self.n_author[:4]
@@ -142,13 +143,13 @@ class SaveBook(BookRef):
             dict_mag = {"Identifiant": self.ref_with_book, "Auteur": self.book_datas.get("nom"),
                       "Prenom": self.book_datas.get("prenom"), "Titre": self.book_datas.get("ouvrage"),
                       "Parution": self.book_datas.get("an_parution"), "Revue": self.book_datas.get("revue"),
-                      "Pages" : f"{self.book_datas.get('pp')} - {self.book_datas.get('pps')}",
+                      "Pages": f"{self.book_datas.get('pp')} - {self.book_datas.get('pps')}",
                       "Theme": self.my_biblio}
             cur.execute("""
                         INSERT INTO Articles VALUES
                         (:Identifiant, :Auteur, :Prenom, :Titre, 
                         :Parution, :Revue, :Pages, :Theme)
-                        """,dict_mag)
+                        """, dict_mag)
         elif self.book_datas.get("document") == "L-":
             cur.execute("""
                         CREATE TABLE IF NOT EXISTS Livres(
@@ -166,7 +167,7 @@ class SaveBook(BookRef):
             dict_book = {"Identifiant": self.ref_with_book, "Auteur": self.book_datas.get("nom"),
                          "Prenom": self.book_datas.get("prenom"), "Titre": self.book_datas.get("ouvrage"),
                          "Parution": self.book_datas.get("an_parution"), "Editeur": self.book_datas.get("edition"),
-                         "Pages" : self.book_datas.get("nb_pages"), "ISBN": self.book_datas.get("ISBN"),
+                         "Pages": self.book_datas.get("nb_pages"), "ISBN": self.book_datas.get("ISBN"),
                          "Theme": self.my_biblio}
             cur.execute("""
                         INSERT INTO Livres VALUES
