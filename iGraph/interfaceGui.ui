@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MaFenetrePrincipale</class>
+ <widget class="QWidget" name="MaFenetrePrincipale">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>831</width>
+    <height>575</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestionaire bibliographique</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="5" column="2">
+    <widget class="QLineEdit" name="lineEdit_8"/>
+   </item>
+   <item row="2" column="0" rowspan="3">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Saisir un titre à ajouter</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QRadioButton" name="SelectLivre">
+        <property name="text">
+         <string>Ouvrage</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="SelectArticle">
+        <property name="text">
+         <string>Article</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="9" column="0" colspan="3">
+    <spacer name="Separateur2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>813</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLineEdit" name="lineEdit1">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>Saisir le nom de la bibliographie à créer ou à ouvrir</string>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="Nom">
+     <property name="placeholderText">
+      <string>Nom de l'auteur</string>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="2">
+    <widget class="QDialogButtonBox" name="Fermer">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Close</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <spacer name="Separateur1">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>813</width>
+       <height>50</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="2">
+    <widget class="QLineEdit" name="lineEdit_6"/>
+   </item>
+   <item row="4" column="2">
+    <widget class="QLineEdit" name="lineEdit_7"/>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="Titre">
+     <property name="placeholderText">
+      <string>Titre</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="AnPub">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>Année de publication</string>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="0">
+    <widget class="QDialogButtonBox" name="Appliquer">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Apply</set>
+     </property>
+     <property name="centerButtons">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QDialogButtonBox" name="ValideBibliographie">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QLineEdit" name="lineEdit_5"/>
+   </item>
+   <item row="10" column="0" rowspan="2">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Rechercher un titre</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QComboBox" name="TitreListe"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="Reference"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="10" column="1" rowspan="3" colspan="2">
+    <widget class="QTextEdit" name="EditionTexte">
+     <property name="documentTitle">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="Prenom">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>Prénom de l'auteur</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1" colspan="2">
+    <widget class="QDialogButtonBox" name="ValideAjouteTitre">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Reset|QDialogButtonBox::Save</set>
+     </property>
+     <property name="centerButtons">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
